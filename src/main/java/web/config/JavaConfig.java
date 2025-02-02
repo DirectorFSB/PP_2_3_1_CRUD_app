@@ -99,14 +99,7 @@ public class JavaConfig implements WebMvcConfigurer {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
         return new PersistenceExceptionTranslationPostProcessor();
     }
-    @Bean
-    public TransactionStatus status(){
-        DefaultTransactionDefinition definition = new DefaultTransactionDefinition();
-        definition.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
-        definition.setTimeout(3);
-        TransactionStatus status = getTransactionManager().getTransaction(definition);
-        return status;
-    }
+
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {

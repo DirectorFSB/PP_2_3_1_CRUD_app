@@ -16,19 +16,9 @@ import java.util.List;
 public class UserDaoJpaImp implements UserDao{
 
 
-
     @PersistenceContext
     private EntityManager entityManager;
 
-    private TransactionStatus status;
-
-    private PlatformTransactionManager transactionManager;
-
-    @Autowired
-    public UserDaoJpaImp(TransactionStatus status, PlatformTransactionManager transactionManager) {
-        this.status = status;
-        this.transactionManager = transactionManager;
-    }
 
     @Override
     public void add(User user) {

@@ -13,7 +13,7 @@ import web.service.UserService;
 @RequestMapping(value = "/users")
 public class UsersController {
 
-    UserService userService;
+    private UserService userService;
 
     @Autowired
     public UsersController(UserService userService) {
@@ -49,7 +49,6 @@ public class UsersController {
     }
     @PostMapping(value = "/update")
     public String updatePost(@ModelAttribute("user") User user){
-        System.out.println(user.getEmail()+ " "+ user.getId() + " "+ user.getName()+" " + user.getLastName());
         userService.update(user);
         return "redirect:/users";
     }
